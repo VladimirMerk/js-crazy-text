@@ -1,0 +1,141 @@
+html,
+body,
+main,
+.grid {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 14px;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #fc90a5;
+}
+
+a:focus,
+a:hover {
+  color: #dc7e91;
+}
+
+:root {
+  --length: 0;
+  --rotating: rotating 2s linear infinite;
+  --iridescent: iridescent 8s ease infinite;
+  --expanding: expanding 20s ease infinite alternate;
+}
+
+* {
+  font-family: monospace;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+label {
+  width: 140px;
+  display: inline-block;
+}
+
+p,
+ul {
+  font-size: 16px;
+  width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: 1s;
+}
+
+p::first-letter {
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+span {
+  opacity: 1;
+  transition: 4s;
+}
+
+span.hidden {
+  opacity: 0;
+}
+
+p.show,
+ul.show {
+  opacity: 1;
+}
+
+.rotating {
+  display: inline-block;
+  animation: var(--rotating);
+}
+
+.rotating.iridescent {
+  animation: var(--rotating), var(--iridescent);
+}
+
+.rotating.expanding {
+  animation: var(--rotating), var(--expanding);
+}
+
+.rotating.iridescent.expanding {
+  animation: var(--rotating), var(--iridescent), var(--expanding);
+}
+
+.iridescent {
+  animation: var(--iridescent);
+}
+
+.iridescent.expanding {
+  animation: var(--iridescent), var(--expanding);
+}
+
+.expanding {
+  padding-right: var(--length);
+  animation: var(--expanding);
+}
+
+#credit {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  margin-top: 70px;
+  color: #b9b9b9;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes iridescent {
+  15% { color: red; }
+  30% { color: orange; }
+  45% { color: yellow; }
+  60% { color: green; }
+  75% { color: sky; }
+  90% { color: blue; }
+  100% { color: violet; }
+}
+
+@keyframes expanding {
+  0% { padding-right: 0; }
+  100% { padding-right: var(--length); }
+}
